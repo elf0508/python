@@ -1,0 +1,262 @@
+python05_dict.py
+
+# 3. 딕셔너리  중복 X , 추가, 삭제 가능
+# {키 : 벨류}
+# {key : value}  {인덱스 : 값} <-- 값은 쌍이다
+
+a = {1:'hi', 2:'hello'}
+print(a) 
+print(a[1])   # hi
+
+b = {'hi' : 1, 'hello' : 2}
+print(b['hello'])  # 2
+
+# 딕셔너리 요소 삭제
+del a[1]
+print(a)  # {2: 'hello'}
+del a[2]
+print(a)  # {}
+
+a = {1:'a', 1:'b', 1:'c'}
+print(a)  # {1: 'c'}  마지막에 덮어쓴 부분이 나온다
+
+b = {1: 'a', 2: 'a', 3: 'a'}
+print(b)  # {1: 'a', 2: 'a', 3: 'a'}  키값은 중복 X, 벨류값은 중복 O
+
+a = {'name' : 'yun', 'phone' : '010', 'birth' : '0511'}
+print(a.keys())  # dict_keys(['name', 'phone', 'birth'])
+print(a.values())  #  dict_values(['yun', '010', '0511'])
+print(type(a))  # <class 'dict'>
+print(a.get('name'))  #  yun
+print(a['name'])  #  yun
+print(a.get('phone')) # 010
+print(a['phone'])   # 010
+
+# 조건문 & 반복문 + 구글링 : 언어별로 같은 맥락을 가지고 있다
+
+-------------------------------------------------------------------------
+
+python06_for.py
+
+# for문 : 반복문
+
+a = {'name' : 'yun', 'phone' : '010', 'birth' : '0511'}
+ # a.keys()값을 하나씩 i에 넣어라
+for i in a.keys():
+    print(i)  # 순서대로 출력된다 / name  phone  birth
+
+a = [1,2,3,4,5,6,7,8,9,10]
+for i in a:
+    i = i*i
+'''
+4
+9
+16
+25
+36
+49
+64
+81
+100 로 나온다
+'''
+
+for i in a:    
+    print(i)
+'''
+2
+3
+4
+5
+6
+7
+8
+9
+10  로 나온다
+'''    
+# print('melong')
+
+## while문
+'''
+while 조건문 : '참'일 동안 계속 된다
+    수행할 문장
+'''
+
+### if문
+ 
+if 1 :
+     print('True')  # True
+else:
+    print('False')
+
+if 3 :
+     print('True')  # True
+else:
+    print('False')
+
+if 0 :
+     print('True')  # False
+else:
+    print('False')
+
+if -1 :
+     print('True')  # True
+else:
+    print('False')
+
+'''
+비교 연산자
+
+< , > , == , !=, >= , <=
+        
+'''
+a = 1
+if a == 1 :
+    print('출력잘되')  #  출력잘되
+
+money = 10000
+if money >= 30000:
+    print('한우먹자')
+else:
+    print('라면먹자')  #  라면먹자
+
+### 조건 연산자
+# and, or, not
+money = 20000
+card = 1
+if money >= 30000 or card == 1:
+    print('한우먹자') # 한우먹자
+else:
+    print('라면먹자')
+
+jumsu = [90, 25, 67, 45, 80]
+number = 0
+for i in jumsu:
+    if i >=60:
+        print("경] 합격 [축")
+        number = number + 1
+    
+print("합격인원 : " , number, "명")
+'''
+경] 합격 [축
+경] 합격 [축
+경] 합격 [축
+합격인원 :  3 명  으로 나온다
+'''
+print("======= break ===================")
+# break, continue
+
+jumsu = [90, 25, 67, 45, 80]
+number = 0
+for i in jumsu:
+    if i < 30:
+        break   #  제일 가까운 for문을 중지 시킨다
+    if i >=60:
+        print("경] 합격 [축")
+        number = number + 1
+    
+print("합격인원 : " , number, "명")
+'''
+경] 합격 [축
+합격인원 :  1 명 으로 나온다
+'''
+print("======== continue ===============")
+# break, continue
+
+jumsu = [90, 25, 67, 45, 80]
+number = 0
+for i in jumsu:
+    if i < 60:
+        continue   
+    if i >=60:
+        print("경] 합격 [축")
+        number = number + 1
+    
+print("합격인원 : " , number, "명")
+'''
+경] 합격 [축
+경] 합격 [축
+경] 합격 [축
+합격인원 :  3 명 으로 나온다
+'''
+--------------------------------------------
+
+python07_range.py
+
+# range (class)  : 범위 / 데이터 만들때 사용 : x1, y1 등...
+
+a = range(10)
+print(a)  # range(0, 10) 
+
+b = range(1, 11)  # range(1, 11)
+print(b)
+
+for i in a:
+    print(i)  # 0 ~ 9
+
+print("======================")
+
+for i in b:
+    print(i)  # 1 ~ 10
+
+print(type(a)) # <class 'range'>
+
+sum = 0
+for i in range(1, 11):
+    sum = sum + i
+print(sum)  # 55
+
+----------------------------------
+
+python08_hamsu.py
+
+# def로 함수 정의
+print("======= 덧셈 ==========")
+def sum1(a, b):
+    return a + b  # 나온 값을 반환 하겠다
+a = 1
+b = 2
+c = sum1(a, b)
+
+print(c)
+
+print("======= 곱셈 ==========")
+# mul1, div1, sub1
+def mul1(a , b):
+    return a * b
+a = 1
+b = 2
+c = mul1(a , b)
+print(c)
+
+print("======= 나눗셈 ==========")
+def div1(a, b):
+    return a / b
+a = 2
+b = 4
+c = div1(a, b)
+print(c)
+
+print("======= 뺄셈 ==========")
+def sub1(a, b):
+    return a - b
+a = 3
+b = 1
+c = sub1(a, b)
+print(c)
+
+print("=====파라미터(매개변수)============")
+
+def sayYeh(): # 변수를 받아들이지 않아도 출력 가능
+    return 'Hi'
+
+aaa = sayYeh()
+print(aaa)
+
+def sum1(a, b, c):
+    return a + b + c  # 나온 값을 반환 하겠다
+a = 1
+b = 2
+c = 34
+d = sum1(a, b, c)
+
+print(d)
